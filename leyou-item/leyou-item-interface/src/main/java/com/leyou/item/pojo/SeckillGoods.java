@@ -1,6 +1,6 @@
 package com.leyou.item.pojo;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import javax.persistence.*;
 import java.util.Date;
@@ -50,11 +50,11 @@ public class SeckillGoods {
     /**
      * 秒杀库存
      */
-    @JsonIgnore
+   // @JsonIgnore
     @Transient
     private Integer stock;
 
-    @JsonIgnore
+   // @JsonIgnore
     @Transient
     private Integer seckillTotal;
 

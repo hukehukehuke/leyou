@@ -5,19 +5,23 @@ import tk.mybatis.mapper.annotation.KeySql;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import java.util.List;
 
 /**
  * @author bystander
- * @date 2018/9/15
+ * @date 2018/9/18
  */
-@Table(name = "tb_brand")
 @Data
-public class Brand {
+@Table(name = "tb_spec_group")
+public class SpecGroup {
 
     @Id
     @KeySql(useGeneratedKeys = true)
     private Long id;
+    private Long cid;
     private String name;
-    private String image;
-    private Character letter;
+
+    @Transient
+    private List<SpecParam> params;
 }

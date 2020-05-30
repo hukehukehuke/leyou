@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryService {
@@ -16,6 +17,7 @@ public class CategoryService {
 
     /**
      * 根据父节点查询子节点
+     *
      * @param pid
      * @return
      */
@@ -27,6 +29,7 @@ public class CategoryService {
 
     /**
      * 添加
+     *
      * @param category
      * @return
      */
@@ -42,9 +45,15 @@ public class CategoryService {
 
     public int deleteCategoryByPid(Long pid) {
         int i = 0;
-        if(pid != null){
+        if (pid != null) {
             i = this.categoryMapper.deleteByPrimaryKey(pid);
         }
         return i;
     }
+
+    public List<String> queryNameByIds(List<Long> ids) {
+        List<Category> categoryList = this.categoryMapper.selectByIdList(ids);
+        return categoryList.stream().map(category -> {return category.getName();}).collect(Collectors.toList());
+    }
+
 }
