@@ -2,15 +2,15 @@ package com.leyou.item.controller;
 
 import com.leyou.common.pojo.PageResult;
 import com.leyou.item.pojo.Brand;
+import com.leyou.item.pojo.Sku;
+import com.leyou.item.pojo.SpuDetail;
 import com.leyou.item.service.GoodsService;
 import com.leyou.pojo.SpuBo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -41,5 +41,51 @@ public class GoodsController {
            return ResponseEntity.notFound().build();
        }
        return ResponseEntity.ok(pageResult);
+    }
+
+    /**
+     * 新增商品
+     * @param spuBo
+     * @return
+     */
+    @PostMapping(value = "goods")
+    public ResponseEntity<Void> saveGoods(SpuBo spuBo){
+        this.goodsService.saveGoods(spuBo);
+        return  ResponseEntity.status(HttpStatus.MULTI_STATUS).build();
+    }
+
+
+    /**
+     * 根据spuId查询SpuDetail
+     * @param spuId
+     * @return
+     */
+    @GetMapping("spu/detail/{spuId}")
+    public ResponseEntity<SpuDetail> querySpuDetailBySpuId(@PathVariable(value = "spuId") Long spuId){
+        SpuDetail spuDetail = this.goodsService.querySpuDetailBySpuId(spuId);
+        if(spuDetail == null){
+            return  ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(spuDetail);
+    }
+
+    /**
+     * 根据spuId查询sku集合
+     * @param spuId
+     * @return
+     */
+    @GetMapping(value = "sku/list")
+    public ResponseEntity<List<Sku>> querySkusBySkuId(@RequestParam(value = "id") Long spuId){
+        List<Sku> skus = this.goodsService.querySkusBySkuId(spuId);
+        if(CollectionUtils.isEmpty(skus)){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(skus);
+    }
+
+    @PutMapping(value = "goods")
+    public ResponseEntity<Void> UpdateGoods(SpuBo spuBo){
+        this.goodsService.UpdateGoods(spuBo);
+        return ResponseEntity.status(HttpStatus.MULTI_STATUS).build();
     }
 }
