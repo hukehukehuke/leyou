@@ -5,12 +5,14 @@ spring:
     name: search-service
   data:
     elasticsearch:
-      cluster-name:
-      cluster-nodes:
+      cluster-name: search-service
+      cluster-nodes: 127.0.0.1
+  jackson:
+    default-property-inclusion: non_null
 eureka:
   client:
     service-url:
-      defaultZone:
+      defaultZone: htpp:127.0.0.1:8089/huke
     registry-fetch-interval-seconds: 10
   instance:
     lease-expiration-duration-in-seconds: 5
