@@ -1,5 +1,6 @@
 package com.leyou.item.api;
 
+import com.leyou.item.pojo.SpecGroup;
 import com.leyou.item.pojo.SpecParam;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,4 +31,7 @@ public interface SpecApi {
      */
     @GetMapping("{id}")
     ResponseEntity<String> querySpecificationByCategoryId(@PathVariable("id") Long id);
+
+    @GetMapping(value = "group/param/{cid}")
+    public List<SpecGroup> queryGroupWithParam(@PathVariable(value = "cid") Long cid);
 }

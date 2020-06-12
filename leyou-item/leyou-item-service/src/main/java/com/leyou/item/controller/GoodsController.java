@@ -4,6 +4,7 @@ import com.leyou.common.pojo.PageResult;
 import com.leyou.item.bo.SpuBo;
 import com.leyou.item.pojo.Brand;
 import com.leyou.item.pojo.Sku;
+import com.leyou.item.pojo.Spu;
 import com.leyou.item.pojo.SpuDetail;
 import com.leyou.item.service.GoodsService;
 
@@ -89,4 +90,14 @@ public class GoodsController {
         this.goodsService.UpdateGoods(spuBo);
         return ResponseEntity.status(HttpStatus.MULTI_STATUS).build();
     }
+
+    @GetMapping(value = "{id}")
+    public  ResponseEntity<Spu> querySpuById(@PathVariable(value = "id") Long id){
+        Spu spu = this.goodsService.querySpuById(id);
+        if(spu == null){
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(spu);
+    }
+
 }
