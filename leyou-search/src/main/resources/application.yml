@@ -9,6 +9,13 @@ spring:
       cluster-nodes: 127.0.0.1
   jackson:
     default-property-inclusion: non_null
+  rabbitmq:
+    host: 192.168.56.101
+    virtual-host:  /leyou
+    username: leyou
+    password: leyou
+    template:
+      exchange: leyou.item.exchange
 eureka:
   client:
     service-url:

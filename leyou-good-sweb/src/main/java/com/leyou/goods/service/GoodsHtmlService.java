@@ -32,4 +32,9 @@ public class GoodsHtmlService {
            }
        }
     }
+
+    public void deleteHtml(Long id) {
+        File file = new File("Nginx上文件路径"+ id + ".html");
+        file.deleteOnExit();
+    }
 }
