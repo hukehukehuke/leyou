@@ -9,6 +9,7 @@
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/leyou-auth/leyou-auth-common/pom.xml" />
         <option value="$PROJECT_DIR$/leyou-goods-web/pom.xml" />
       </set>
     </option>

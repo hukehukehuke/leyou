@@ -2,7 +2,7 @@ server:
   port : 10086
 spring:
   application:
-    name: leyou-regisster
+    name: leyou-register
 eureka:
   client:
     register-with-eureka: false

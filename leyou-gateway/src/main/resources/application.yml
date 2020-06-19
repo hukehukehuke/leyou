@@ -12,3 +12,20 @@ zuul:
   prefix:  /api
   routes:
     item-service: /item/** #路由到商品的微服务
+    search-service: /search/** #路由到搜索微服务
+    user-service: /user/**
+    auth-service: /auth/**
+  add-proxy-headers: true
+  sensitive-headers: #默认覆盖敏感头信息
+leyou:
+  jwt:
+    pubKeyPath:  #公钥地址
+    cookieName: LY_TOKEN
+  filter:
+    allowPaths:
+      - /api/auth
+      - /api/search
+      - /api/user/register
+      - /api/user/check
+      - /api/user/code
+      - /api/item
