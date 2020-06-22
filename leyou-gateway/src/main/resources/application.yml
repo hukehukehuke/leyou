@@ -15,6 +15,7 @@ zuul:
     search-service: /search/** #路由到搜索微服务
     user-service: /user/**
     auth-service: /auth/**
+    cart-service: /cart/**
   add-proxy-headers: true
   sensitive-headers: #默认覆盖敏感头信息
 leyou:

@@ -9,13 +9,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="leyou-common" />
         <module name="leyou-upload" />
-        <module name="leyou-auths-common" />
+        <module name="leyou-search" />
         <module name="leyou-item-service" />
         <module name="leyou-registry" />
-        <module name="leyou-search" />
         <module name="leyou-auth-service" />
         <module name="leyou-gateway" />
         <module name="leyou-user-service" />
+        <module name="leyou-cart" />
+        <module name="leyou-auths-common" />
         <module name="leyou-item-interface" />
         <module name="leyou-user-interface" />
         <module name="leyou-good-sweb" />
@@ -34,6 +35,7 @@
       <module name="leyou-auth-common" options="-parameters" />
       <module name="leyou-auth-service" options="-parameters" />
       <module name="leyou-auths-common" options="-parameters" />
+      <module name="leyou-cart" options="-parameters" />
       <module name="leyou-common" options="-parameters" />
       <module name="leyou-gateway" options="-parameters" />
       <module name="leyou-good-sweb" options="-parameters" />
