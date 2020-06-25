@@ -158,4 +158,8 @@ public class GoodsService {
     public Spu querySpuById(Long id) {
         return this.spuMapper.selectByPrimaryKey(id);
     }
+
+    public Sku querySkuBySkuId(Long skuId) {
+        return this.skuMapper.selectByPrimaryKey(skuId);
+    }
 }
